@@ -96,6 +96,24 @@
 		<button @click="counter">加1 : {{count}}</button>
 	</div>
 
+	<div id="computed">
+		{{ prices }}
+	</div>
+	<div id="appdemo">
+		{{ msg }}
+	</div>
+
+
+	<div id="app88" v-bind:style="styleObj">
+		{{fullName}}
+	</div>
+
+
+	<div id="app97">
+		计算属性的缓存：<br>
+
+	</div>
+
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="./main.js"></script>

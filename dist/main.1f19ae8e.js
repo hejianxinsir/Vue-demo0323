@@ -326,6 +326,74 @@ var app14 = new Vue({
       clearInterval(this.timer);
     }
   }
+}); // computed 计算属性
+
+var computedDemo = new Vue({
+  el: '#appdemo',
+  data: {
+    msg: 100000
+  }
+});
+var computed1 = new Vue({
+  el: '#computed',
+  data: {
+    cart1: [{
+      name: 'iPhone8',
+      count: 3,
+      price: 1000
+    }, {
+      name: 'android',
+      count: 2,
+      price: 3000
+    }],
+    cart2: [{
+      name: 'ipad',
+      count: 5,
+      price: 3600
+    }, {
+      name: 'banana',
+      count: 10,
+      price: 10
+    }]
+  },
+  computed: {
+    prices: function prices() {
+      var prices = 0;
+
+      for (var i = 0; i < this.cart1.length; i++) {
+        prices += this.cart1[i].count * this.cart1[i].price;
+      }
+
+      for (var j = 0; j < this.cart2.length; j++) {
+        prices += this.cart2[j].count * this.cart2[j].price;
+      }
+
+      return prices + ' | ' + computedDemo.msg;
+    }
+  }
+}); // 计算属性的 getter 和 setter
+
+var app88 = new Vue({
+  el: '#app88',
+  data: {
+    firstName: 'Zhang',
+    lastName: 'sanfeng',
+    styleObj: {
+      color: 'red',
+      fontSize: '30px',
+      border: '5px solid pink'
+    }
+  },
+  computed: {
+    //fullName: function(){
+    //	return this.firstName + ' ' + this.lastName 
+    //}
+    fullName: {
+      get: function get() {
+        return this.firstName + ' ' + this.lastName;
+      }
+    }
+  }
 });
 },{}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -355,7 +423,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60436" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58836" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -233,3 +233,74 @@ var app14 = new Vue({
 	}
 })
 
+// computed 计算属性
+var computedDemo = new Vue({
+	el: '#appdemo',
+	data: {
+		msg: 100000
+	}
+})
+
+
+var computed1 = new Vue({
+	el: '#computed',
+	data: {
+		cart1: [
+			{name: 'iPhone8', count: 3, price: 1000 },
+			{name: 'android', count: 2, price: 3000}
+		],
+		cart2: [
+			{name: 'ipad', count: 5, price: 3600},
+			{name: 'banana', count: 10, price: 10}
+		]
+	},
+	computed: {
+		prices: function(){
+			let prices = 0
+			for(let i=0; i<this.cart1.length; i++){
+				prices += this.cart1[i].count * this.cart1[i].price	
+			}	
+			for(let j=0; j<this.cart2.length; j++){
+				prices += this.cart2[j].count * this.cart2[j].price	
+			}
+
+			return prices + ' | ' + computedDemo.msg
+		}
+	}
+})
+
+
+// 计算属性的 getter 和 setter
+var app88 = new Vue({
+	el: '#app88',
+	data: {
+		firstName: 'Zhang',
+		lastName: 'sanfeng',
+		styleObj: {
+			color: 'red',
+			fontSize: '30px',
+			border: '5px solid pink'
+		}
+	},
+	computed: {
+		//fullName: function(){
+		//	return this.firstName + ' ' + this.lastName 
+		//}  这三行代码等于下面的 get 方法
+
+		fullName: {
+			get: function(){
+				return this.firstName + ' ' + this.lastName
+			},
+			set: funtion(newValue){
+				console.log('我是set方法，我被调用了')	
+				var names = newValue.split(',')
+				this.firstName = names[0]
+				this.lastName = names[1]
+			}
+		}
+	}
+})
+
+
+// 计算属性的缓存
+
