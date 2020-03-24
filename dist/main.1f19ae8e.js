@@ -376,23 +376,170 @@ var computed1 = new Vue({
 var app88 = new Vue({
   el: '#app88',
   data: {
-    firstName: 'Zhang',
-    lastName: 'sanfeng',
+    fullName: 'Wang,wei',
     styleObj: {
-      color: 'red',
-      fontSize: '30px',
-      border: '5px solid pink'
+      color: 'brown',
+      fontSize: '30px'
+    }
+  },
+  methods: {
+    xxx: function xxx() {
+      this.fullName = this.fullName.split(',').reverse().join(' ');
+      return this.fullName;
     }
   },
   computed: {
-    //fullName: function(){
-    //	return this.firstName + ' ' + this.lastName 
-    //}
+    reverseName: function reverseName() {
+      var names = this.fullName.split(',');
+      return names.reverse().join(' ');
+    }
+  }
+}); // watch 与 计算属性
+
+var app99 = new Vue({
+  el: '#app99',
+  data: {
+    firstName: 'Foo',
+    lastName: 'dddd',
+    fullName: 'Foo Bar'
+  },
+  //computed: {
+  //	xxx: function(){
+  //		this.fullName = this.firstName + this.lastName	
+  //		return this.fullName
+  //	}
+  //},
+  watch: {
+    firstName: function firstName(value) {
+      this.fullName = value + ' ' + this.lastName;
+    },
+    lastName: function lastName(value) {
+      this.fullName = this.firstName + ' ' + value;
+    }
+  }
+}); // computed setter
+
+var app33 = new Vue({
+  el: '#app33',
+  data: {
+    firstName: 'Da',
+    lastName: 'jian'
+  },
+  computed: {
     fullName: {
       get: function get() {
         return this.firstName + ' ' + this.lastName;
+      },
+      set: function set(val) {
+        var names = val.split(' ');
+        this.firstName = names[0];
+        this.lastName = names[names.length - 1];
       }
     }
+  }
+});
+app33.fullName = 'Xin He'; // a标签  img标签
+
+var app67 = new Vue({
+  el: '#app67',
+  data: {
+    href: 'https://www.google.com/ncr',
+    src: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+  }
+}); // v-bind:class...
+
+var app55 = new Vue({
+  el: '#app55',
+  data: {
+    isActive: true,
+    isBorderA: true,
+    isBorderB: false,
+    isBack1: true,
+    isBack2: false
+  },
+  methods: {
+    changeBorder: function changeBorder() {
+      this.isBorderA = !this.isBorderA;
+      this.isBorderB = !this.isBorderB;
+      return this.isBorderA;
+      this.isBorderB;
+    },
+    changeBack: function changeBack() {
+      this.isBack1 = !this.isBack1;
+      this.isBack2 = !this.isBack2;
+      return this.isBack1;
+      this.isBack2;
+    }
+  }
+}); // v-bind:class="classNames"
+
+var app77 = new Vue({
+  el: '#app77',
+  data: {
+    yyy: true
+  },
+  computed: {
+    classNames: function classNames() {
+      return {
+        he: true,
+        jian: true,
+        xin: true
+      };
+    }
+  }
+}); // v-bind:class="[one, two]"
+
+var app90 = new Vue({
+  el: '#app90',
+  data: {
+    one: 'activeClass',
+    two: 'errorClass'
+  }
+}); // v-bind="[{jonson: isJonson},hey]"
+
+var app86 = new Vue({
+  el: '#app86',
+  data: {
+    isActive: true,
+    hey: 'heyhey'
+  }
+}); // v-bind:style="styleObj"
+
+var app64 = new Vue({
+  el: '#app64',
+  data: {
+    styleObj: {
+      border: '5px solid red',
+      color: 'blue'
+    }
+  }
+}); // :style="[one,two]"
+
+var app444 = new Vue({
+  el: '#app444',
+  data: {
+    one: {
+      color: 'red',
+      border: '5px solid pink'
+    },
+    two: {
+      fontSize: '40px',
+      background: 'blue'
+    }
+  }
+}); // 练习
+
+var app999 = new Vue({
+  el: '#app999',
+  data: {
+    isOne: true
+  }
+});
+var array = new Vue({
+  el: '#array',
+  data: {
+    he: 'hehe',
+    jian: 'jianjian'
   }
 });
 },{}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -423,7 +570,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58836" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59614" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

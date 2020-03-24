@@ -5,8 +5,66 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>Vue-demo0322</title>
 	<style>
+		.oo{
+			color: brown;
+		}
+		.hehe{
+			color: gray;
+		}
+		.jianjian{
+			border: 5px solid red;
+		}
+		.one{
+			color: red;
+		}
+		.xie{
+			color: red;
+		}
+		.bi{
+			font-size: 50px;
+			border: 3px solid black;
+		}
+		.jonson{
+			color: red;
+		}
+		.heyhey{
+			font-size: 45px;
+		}
 		.janson{
 			color: brown;
+		}
+		.divStyle{
+			color: brown;
+			padding: 20px 0;
+			text-align: center;
+		}
+		.border{
+			border: 5px solid brown;
+		}
+		.xxx{
+			border: 5px solid darkblue;
+		}
+		.backColor1{
+			background: lightgray;
+		}
+		.backColor2{
+			background: blue;
+		}
+		.he{
+			color: blue;
+			margin: 20px 0;
+		}
+		.jian{
+			border: 3px solid red;
+		}
+		.xin{
+			font-size: 50px;
+		}
+		.activeClass{
+			border: 5px solid #111;
+		}
+		.errorClass{
+			font-size: 58px;
 		}
 	</style>
 </head>
@@ -103,17 +161,65 @@
 		{{ msg }}
 	</div>
 
-
 	<div id="app88" v-bind:style="styleObj">
+		{{ fullName }}<br>
+		{{ reverseName }}<br>
+		{{ xxx() }}
+	</div>
+
+
+	<div id="app99">
+		{{ fullName }}
+	</div>
+
+	<div id="app33">
 		{{fullName}}
 	</div>
 
 
-	<div id="app97">
-		计算属性的缓存：<br>
-
+	<div id="app67">
+		<a :href="href">Google</a>
+		<img :src="src" alt="google">
 	</div>
 
+	<div id="app55" v-bind:class="{divStyle: isActive, border: isBorderA, xxx: isBorderB, backColor1: isBack1, backColor2: isBack2}">
+		 我是app55<br>
+		 <button v-on:click="changeBorder">换border</button><br>
+		 <input type="button" v-on:click="changeBack" value="换背景"> 
+	</div>
+
+	<div id="app77" v-bind:class="classNames">
+		我是 app77
+	</div>
+
+	<div id="app90" v-bind:class="[one, two]">
+		我是 app90
+	</div>
+
+	<div id="app86" v-bind:class="[{active: isActive},hey]">
+		我是 app86
+	</div>
+
+
+	<div id="app64" v-bind:style="styleObj">
+		我是app64
+	</div>
+	
+	<div id="app444" v-bind:style="[one,two]">
+		我是app444
+	</div>	
+
+	<div id="app999" v-bind:class="{one: isOne}">
+		我是app999
+	</div>
+
+	<div id="array" v-bind:class="[he,jian]">
+		我是 array	
+	</div>
+	
+	<div id="ii" v-bind:class="{classObj}">
+		我是app ii	
+	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="./main.js"></script>
