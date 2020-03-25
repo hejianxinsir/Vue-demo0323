@@ -458,4 +458,172 @@ var array = new Vue({
 	}
 })
 
+// v-if
+var popo = new Vue({
+	el: '#popo',
+	data: {
+		hello: true,
+		ok: true
+	}
+})
 
+var test1 = new Vue({
+	el: '#test1',
+	data: {
+		type: 'A'
+	}
+})
+
+
+// v-cloak 与 display: none 一起使用
+var app011 = new Vue({
+	el: '#app011',
+	data: {
+		message: 'Hello, Janson'
+	}
+})
+
+
+// v-once 只渲染一次，再更改数据也不会变了
+var app698 = new Vue({
+	el: '#app698',
+	data: {
+		ooo: 'v-once Janson'
+	}
+})
+
+
+var app233 = new Vue({
+	el: '#app233',
+	data: {
+		type: 'name' 
+	},
+	methods: {
+		change: function(){
+			this.type = (this.type === 'name' ? 'password' : 'name')
+		}
+	}
+})
+
+
+// v-for 
+var app666 = new Vue({
+	el: '#app666',
+	data: {
+		hey: [
+			{way: 1},
+			{way: 2},
+			{way: 3}
+		],
+		nvshen: {
+			girl1: '高圆圆',
+			girl2: '丁飞',
+			girl3: '乱诶'
+		}
+	}
+})
+
+
+// 排序
+var app887 = new Vue({
+	el: '#app887',
+	data: {
+		test: [
+			'name',
+			'age',
+			'hasMoney'
+		]
+	},
+	computed: {
+		matchoo: function(){
+			return this.test.filter(function(y){
+				return y.match(/y/)	
+			})
+		}
+	},
+	methods: {
+		testSort: function(){
+			this.test.sort(function(a,b){
+				return a.length - b.length 
+			})
+		},
+		reverse: function(){
+			return this.test.reverse()
+		}
+	}
+})
+
+// count +
+var app778 = new Vue({
+	el: '#app778',
+	data: {
+		count: 7
+	},
+	methods: {
+		plus: function(count){
+			count = count || 1
+			this.count += count
+		}
+	}
+})
+
+
+// 修饰符 .stop 阻止单击事件向上冒泡；.prevent 提交时间并且不重载页面; .self 只是作用在元素本身而非子元素的时候；如果不用 .stop ，那可以用 .self 代替一下，效果相同。; .once 只执行一次
+var app880 = new Vue({
+	el: '#app880',
+	data: {},
+	methods: {
+		divClick: function(){
+			console.log('divClicked')	
+		},	
+		btnClick: function(){
+			console.log('btnClicked')	
+		},
+		stopFresh: function(){
+			console.log('我不重载页面了')
+		},
+		sonDiv: function(){
+			console.log('sonDiv clicked')
+		},
+		sonBtn: function(){
+			console.log('sonBtn clicked')
+		},
+		onceMe: function(){
+			console.log('onceMe')
+		},
+		downMe: function(){
+			console.log('downMe')
+		}
+	}
+})
+
+// v-model
+var app8u = new Vue({
+	el: '#app8u',
+	data: {
+		message: 'Janson'
+	}
+})
+
+
+var app9i = new Vue({
+	el: '#app9i',
+	data: {
+		array: [
+			'uuu',
+			'ooo',
+			'yyy'
+		]
+	}
+})
+
+
+var app7t = new Vue({
+	el: '#app7t',
+	data: {
+		message: 'janson',
+		hh: false,
+		kk: '<span>uuuuu yyyyyyyyyy ttttttttt</span>',
+		msg: 'qq ii oo'
+	}
+})

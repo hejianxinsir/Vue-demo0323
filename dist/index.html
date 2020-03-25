@@ -4,7 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>Vue-demo0322</title>
-	<style>.oo{
+	<style>[v-cloak]{
+			border: 5px solid blue;
+			font-size: 20px;
+			display: none;
+		}
+		.oo{
 			color: brown;
 		}
 		.hehe{
@@ -217,6 +222,117 @@
 	
 	<div id="ii" v-bind:class="{classObj}">
 		我是app ii	
+	</div>
+
+	<div id="popo" v-if="hello">
+		我是 v-if popo
+		<template v-if="ok">
+			<h2>上头</h2>
+			<h2>没问题</h2>
+			<h2>好的</h2>
+		</template>
+	</div>
+	<div v-else="">Oh no !</div>
+
+	<div id="test1">
+		<div v-if="type === 'A'">
+			青山有幸埋忠骨
+		</div>
+		<div v-else-if="type === 'B'">
+			白铁无辜铸佞臣
+		</div>
+		<div v-else-if="type === 'C'">
+			杨家有女初长成
+		</div>
+		<div v-else="">
+			都是些什么乱七八糟的?
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="app011"> 
+		<p v-cloak="">{{message}}</p>
+	</div>
+
+	<div id="app698">
+		<span v-once="">{{ooo}}</span>
+	</div>
+	<hr>
+
+	<div id="app233">
+		<div v-if="type === 'name'">
+			用户名: <input type="text" placeholder="输入用户名" key="name">
+		</div>
+		<div v-else-if="type === 'password'">
+			密码: <input type="text" placeholder="输入密码" key="psd">
+		</div>
+		<button @click="change">切换</button>
+	</div>
+
+	<div id="app666">
+		<ul>
+			<li v-for="(a, index) in hey">index: {{a.way}}</li>
+		</ul>
+		<span v-for="(value,key) in nvshen">{{key}}: {{ value}}</span><br>
+	</div>
+	<hr>
+
+
+	<div id="app887">
+		<div v-for="a in test">{{a}}</div>
+		{{matchoo}}
+		<button v-on:click="testSort">排序</button>
+		<button v-on:click="reverse">颠倒</button>
+	</div>
+	<hr>
+
+	<div id="app778">
+		{{count}}
+		<button @click="plus()">加加</button>
+		<button @click="plus(10)">加加</button>
+	</div>
+	<hr>
+
+	<div id="app880" @click.self="divClick">
+		<button @click.stop="btnClick">btn</button>	
+		<hr>
+
+		<form action="" @submit.prevent="stopFresh">
+			<button type="submit">提交表单</button>
+		</form>
+		<hr>
+
+		<div @click.self="sonDiv" style="background: red;">
+			<button @click="sonBtn">sonBtn</button>
+		</div>
+		<hr>
+
+		<button @click="onceMe">执行多次</button>
+		<button @click.once="onceMe">执行多次</button>
+		
+		监听键盘事件:
+		<input type="submit" @keyup.Y="downMe">
+	</div>
+
+	<div id="app8u">
+		{{message}}<br>
+		<input type="text" v-model="message" placeholder="输入内容">
+	</div>
+
+	<div id="app9i">
+		<li v-for="(a, index) in array">{{index}}: {{a}}</li>
+	</div>
+	<hr>
+
+	<div id="app7t">
+		<span v-text="message"></span>
+		<span v-show="hh">Now you see me</span>
+		<span v-html="kk"></span>
+		<hr>
+
+		<div v-once="">{{msg}}</div>
+		<div v-cloak="">{{msg}}</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
