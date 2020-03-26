@@ -686,6 +686,75 @@ var app7t = new Vue({
     msg: 'qq ii oo'
   }
 });
+var appu8 = new Vue({
+  el: '#app8u',
+  data: {
+    janson: {
+      look: 'hansome',
+      age: '18',
+      hobby: 'myBaby'
+    }
+  }
+}); // 单选框 多个单选框 
+
+var app99u = new Vue({
+  el: '#u99',
+  data: {
+    oneradio: true,
+    checked: '你好'
+  }
+}); //...
+
+var y77 = new Vue({
+  el: '#y77',
+  data: {
+    checked: '',
+    tworadio: true,
+    janson: true,
+    selected: '啊啊啊',
+    selects: []
+  }
+}); //...
+
+var t1 = new Vue({
+  el: '#t1',
+  data: {
+    test1: true,
+    test2: true,
+    test3: ''
+  }
+}); //...
+
+var r1 = new Vue({
+  el: '#r1',
+  data: {
+    janson: [],
+    hehe: true,
+    xixi: true
+  }
+}); //...
+
+var r2 = new Vue({
+  el: '#r2',
+  data: {
+    toggle: '',
+    value1: '111',
+    value2: '222',
+    selectValue: '',
+    valueStr: '',
+    testStr: '',
+    numStr: '',
+    trimStr: ''
+  }
+}); //...
+
+var app33 = new Vue({
+  el: '#w1',
+  data: {
+    onecheck: true,
+    test: ''
+  }
+});
 },{}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -714,7 +783,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61071" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63757" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

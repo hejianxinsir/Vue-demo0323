@@ -334,6 +334,120 @@
 		<div v-once="">{{msg}}</div>
 		<div v-cloak="">{{msg}}</div>
 	</div>
+	<hr>
+
+	<div id="u99">
+		多选框：
+		你好：<input type="radio" name="checks" value="你好" v-model="checked">
+		我好：<input type="radio" name="checks" value="我好" v-model="checked">
+		大家好：<input type="radio" name="checks" value="大家好" v-model="checked"><br>
+		{{checked}}
+	</div>
+	<hr>
+
+	<div id="y77">
+		多选框：<br>
+		hello: <input type="radio" name="checks" value="叮当" v-model="checked"><br>
+		hey: <input type="radio" name="checks" value="哈哈哈" v-model="checked"><br>
+		asdi: <input type="radio" name="checks" value="xixi" v-model="checked"><br>
+
+		{{checked}}
+		<br>
+
+		单个复选框：<input type="checkbox" v-bind:checked="tworadio"><br>
+		<hr>
+
+		多个复选框：<br>
+		第一：<input type="checkbox" value="he" v-model="janson"><br>
+		第二：<input type="checkbox" value="jian" v-model="janson"><br>
+		第三：<input type="checkbox" value="xin" v-model="janson"><br>
+		janson: {{janson}}
+		<hr>
+
+		
+		<select v-model="selected">
+			<option value="松松松">松松松</option>
+			<option value="啊啊啊">啊啊啊</option>
+			<option value="急急急">急急急</option>
+		</select>
+		<br>
+		已选：{{selected}}
+		<hr>
+
+		<select v-model="selects" multiple="">
+			<option value="aaa">aaa</option>
+			<option value="bbb">bbb</option>
+			<option value="ccc">ccc</option>
+		</select>
+		<br>
+		已选：{{selects}}
+
+	</div>
+
+	<div id="t1">
+		一一：<input type="radio" v-bind:checked="test1"><br>
+		二二：<input type="radio" v-bind:checked="test2"><br>
+		<hr>
+
+		<select v-model="test3">
+			<option value="123">123</option>
+			<option value="234">234</option>
+			<option value="345">345</option>
+		</select>
+		<br>
+		已选：{{test3}}
+	</div>
+
+	<div id="r1">
+		有1：<input type="checkbox" value="011" v-model="janson"><br>
+		有2：<input type="checkbox" value="022" v-model="janson"><br>
+		有3：<input type="checkbox" value="033" v-model="janson"><br>
+		已经选:  {{janson}}
+		<hr>
+
+		单选框: <input type="radio" value="onecheck" v-model="hehe"><br>
+		{{hehe}}
+		// 上面绑定的 hehe 是 true，但没被选中，说明单个单选框不能用v-model绑定，用什么？用v-bind，下面实验一下：
+		<hr>
+		单选框v-bind：<input type="radio" value="999" v-bind:checked="xixi"><br>
+	已选：{{xixi}}
+	</div>
+	<hr>
+
+	<div id="r2">
+		复选框：<input type="checkbox" v-model="toggle" :true-value="value1" :false-value="value2">
+		<br>
+		toggle:{{toggle}}<br>
+		true-value: {{value1}}<br>
+		false-value: {{value2}}<br>
+
+		<hr>
+
+		<select v-model="selectValue">
+			<option :value="{num: '111'}">你好</option>
+		</select>	
+		<br>
+		已选：{{selectValue}}
+
+		修饰符：<input type="text" v-model="valueStr">______{{valueStr}}<br>
+		对比：<input type="text" v-model.lazy="testStr">________{{testStr}}<br>
+		<hr>
+		number修饰符：<input type="text" v-model.number="numStr">______{{numStr}}<br>
+		{{typeof numStr}}
+		<hr>
+		trim 自动过滤字符串收尾空格：<br>
+		trim：<input type="text" v-model.trim="trimStr"><br>
+		展示trim{{trimStr}}
+	</div>
+	<hr>
+
+	<div id="w1">
+		单选框 : <input type="radio" value="7777777" v-model="test"> 
+		test值 : {{test}}<br>
+	</div>
+
+
+
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="/main.1f19ae8e.js"></script>
