@@ -706,3 +706,124 @@ var app33 = new Vue({
 		test: '' 
 	}
 })
+
+// 组件的使用
+// 全句注册组件的优点是，所有 Vue 实例都可以使用；缺点是权限太大，容错率低
+/*
+另，table 标签内不能使用template组件，因为HTML规定 table 标签内只能有 tr td... 等
+如果你在 table 标签内用组件，那么写在 table 里面的 div 会出来。
+如果你一定要在 table 内使用组件,那就用 is 属性，案例见 index.html 468 行。
+*/
+
+// 全局注册如下：
+Vue.component('introduce',{
+	template: '<div>我是一个组件</div>'
+})
+
+var c1 = new Vue({
+	el: '#c1',
+	data: {
+		isActive: true	
+	},
+	components: {
+		'test1': {
+			template: '<div>我是局部注册的组件</div>'
+		},
+		'test2': {
+			template: '<div>我也是局部注册的组件</div>'
+		}
+	}
+})
+
+// 组件命名方式：用小写字母加一横 — 命名，驼峰命名是无效的。
+// template 中的内容必须被 DOM 元素嵌套
+// 组件中，除了 template 还可有其他选项：data，computed, methods...
+// 重点是，template 中的 data 必须是一个方法
+
+var c2 = new Vue({
+	el: '#c2',
+	data: {
+		count: 0
+	},
+	components: {
+		'one-c': {
+			template: '<button @click="count++">{{count}}</button>',
+			data: function(){
+				return {
+					count: 0	//给每一个按钮自己的count原始值，这样复用组件的时候就不会点击一个，每一个按钮都+1了
+				} 
+			}
+		}
+	},
+	methods: {
+		plus: function(){
+			this.count += 1
+			return this.count
+		}
+	}
+})
+
+// ... 
+var c3 = new Vue({
+	el: '#c3',
+	data: {
+	
+	},
+	components: {
+		'one': {
+			props: ['msg'],
+			template: '<div style="border: 3px solid brown">我是子组件</div>'
+		}
+	}
+})
+
+
+//...
+var c4 = new Vue({
+	el: '#c4',
+	data: {
+		parentM: 'parentM'	
+	},
+	components: {
+		'one': {
+			props: ['msg'],
+			template: '<div>msg 是 : {{msg.length}}</div>',
+			data: function(){
+				return { count: 0 }	
+			}
+		},
+		'two': {
+			props: ['uuu'],
+			template: '<div>这里是 v-bind ，uuu是 : {{uuu.length}}</div>',
+			data: function(){
+				return { count: 1 }
+			}
+		}
+	}
+
+})
+
+//...
+
+var c5 = new Vue({
+	el: "#c5",
+	data: {
+		hhh: '111'
+	},
+	components: {
+		'one': {
+			props: ['icu'],
+			template: '<div>我是one组件：{{typeof icu}}</div>',
+			data: function(){
+				return { count: 1 }
+			}
+		},
+		'two': {
+			props: ['ooo'],
+			template: '<div>我是two组件：{{typeof ooo}}',
+			data: function(){
+				return { count: 1 }
+			}
+		}
+	}	
+})

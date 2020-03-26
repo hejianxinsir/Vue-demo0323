@@ -5,6 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>Vue-demo0322</title>
 	<style>
+		.active{
+			border: 5px solid brown;
+			padding: 10px 0;
+			text-align: center;
+		}
 		[v-cloak]{
 			border: 5px solid blue;
 			font-size: 20px;
@@ -447,9 +452,46 @@
 		单选框 : <input type="radio" value="7777777" v-model="test"> 
 		test值 : {{test}}<br>
 	</div>
+	<hr>
 
+	<h1>组件的使用方法</h1>
 
+	<div id="c1">
+		<introduce v-bind:class="{active: isActive}"></introduce>
+		<test1></test1>
+		<table>
+			<test2></test2>
+		</table>
+		<hr>
 
+		<table>
+			<tbody is="test1"></tbody>
+		</table>
+	</div>
+	<hr>
+
+	<div id="c2">
+		<one-c></one-c>	
+		<one-c></one-c>	
+	</div>
+	<hr>
+
+	<div id="c3" style="border: 5px solid blue">
+			<one msg="拉梁阿拉蕾啦啦"></one>	
+	</div>
+	<hr>
+
+	<div id="c4" style="margin: 30px 0;">
+		父子组件的传递：<br>
+		<one msg="[123]"></one>	
+		下面是用 v-bind 父子组件传递：<br>
+		<two v-bind:uuu="[123]"></two>
+	</div>
+
+	<div id="c5">
+		icu: <one icu="111"></one><br>
+		ooo: <two :ooo="[222]"></two><br>
+	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="./main.js"></script>
